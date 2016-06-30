@@ -26,7 +26,7 @@ SpellClicker.getSpell = function(obj){
 }
 
 SpellClicker.tick = function(){
-    if(SpellClicker.game.SpellQueue.length <= 6 ){
+    if(SpellClicker.game.spellQueue.length <= 6 ){
         var newSpell = SpellClicker.getSpell(SpellClicker.Spells);
         console.log(newSpell);
     }
