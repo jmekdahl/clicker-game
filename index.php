@@ -16,7 +16,7 @@
     </head>
     <body>
         <div id="game">
-            <ul id="spell-bar">
+            <ul class="spell-bar">
                 <li rv-each-spell="spellQueue" rv-on-click="spell.cast"> <img rv-src="spell.image" /></li>
             </ul>
         </div>
