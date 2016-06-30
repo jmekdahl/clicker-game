@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src="/clicker-game/assets/js/vendor/rivets/rivets.0.8.0.bundled.min.js"></script>
+        <script src="/clicker-game/assets/vendor/rivets/rivets.0.8.0.bundled.min.js"></script>
         <script src="/clicker-game/assets/js/spellClicker.js"></script>
         <script type="text/javascript">
             document.addEventListener("DOMContentLoaded", function(event) { 
