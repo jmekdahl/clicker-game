@@ -1,0 +1,23 @@
+html, body{
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+}
+
+ul.spell-bar{
+    width: 600px;
+    margin:0 auto;
+    padding:0 5px;
+    text-align:center;
+}
+
+ul.spell-bar li{
+    display:block;
+    width: 100px;
+    float: left;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+ul.spell-bar li img{
+    width: 100%;
+}
