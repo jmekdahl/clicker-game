@@ -53,7 +53,7 @@ SpellClicker.Player = function(name){
     this.accuracy = 0.8;
 };
 
-SpellClicker.game.Player = Object.create(Player("Player 1"));
+SpellClicker.game.Player = Object.create(SpellClicker.Player("Player 1"));
 
 // Damage Roll
 SpellClicker.Roll = function(spell){
