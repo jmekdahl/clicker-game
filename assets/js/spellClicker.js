@@ -1,4 +1,4 @@
-var SpellClicker = SpellClicker || {};
+var SpellClicker = {};
 
 SpellClciker.Spell = function(){
     this.name,
@@ -12,4 +12,3 @@ SpellClicker.SpellPool = {
 SpellClicker.game.spellQueue = [
     Object.clone(SpellClicker.SpellPool.lightningBolt)
 ];
-
