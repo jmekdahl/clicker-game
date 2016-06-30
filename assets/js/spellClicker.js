@@ -19,6 +19,9 @@ SpellClicker.game = function(){
     ];
 };
 
+$(document).ready( function() { 
+    rivets.bind($('#game'), SpellClicker.game);
+});
 
 
 // rivets.formatters.propertyList = function(obj){
