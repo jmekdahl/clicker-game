@@ -19,6 +19,7 @@ rivets.formatters.propertyList = function(obj){
 // Spell Management And Pool
 var SpellClicker = SpellClicker || {};
 SpellClicker.game = {};
+SpellClicker.tickers = {};
 
 SpellClicker.Spell = function(name, damage, image, multiplier){
     this.name = name;
@@ -26,7 +27,7 @@ SpellClicker.Spell = function(name, damage, image, multiplier){
     this.image = "/clicker-game/assets/img/spell-icons/" + image;
     this.multiplier = ( typeof multiplier === 'undefined') ? this.multiplier = 0.25 : multiplier;
     this.cast = function(){
-        SpellClicker.Roll(this);
+        console.log(SpellClicker.Roll(this));
 
         var rem_index = SpellClicker.game.spellQueue.indexOf(this);
         SpellClicker.game.spellQueue.splice(rem_index, 1);
@@ -37,23 +38,40 @@ SpellClicker.game.spellQueue = [];
 
 SpellClicker.Spells = {
     'lightning1': new SpellClicker.Spell('Lightning Bolt', 10, "lighting-blue-1.png"),
-    'frost1': new SpellClicker.Spell('Ice Lance', 2, "ice-blue-1.png"),
+    'frost1': new SpellClicker.Spell('Ice Lance', 5, "ice-blue-1.png"),
     'fire1': new SpellClicker.Spell('Fire Bolt', 15, "fireball-red-1.png")
-};
-
-SpellClicker.getSpell = function(obj){
-    var keys = Object.keys(obj);
-    return obj[keys[ keys.length * Math.random() << 0]];
 };
 
 // Player
 SpellClicker.Player = function(name){
     this.name = name;
-    this.critical = 0.05;
+    this.critical = 0.25;
     this.accuracy = 0.8;
+    this.hp = 100;
 };
 
 SpellClicker.game.Player = new SpellClicker.Player("Player 1");
+
+// Monsters
+SpellClicker.game.Enemies = [];
+SpellClicker.Enemy = function(name, hitpoints, damage){
+    this.name = name;
+    this.hitpoints = hitpoints;
+    this.damage = damage;
+    this.defend = function(damageRoll){
+        this.hitpoints = this.hitpoints - damageRoll;
+
+        if(this.hitpoints <= 0){
+            SpellClicker.Respawn();
+        }
+    };
+};
+
+SpellClicker.Monsters = {
+    'skeleton': new SpellClicker.Spell('Walking Bones', 30, 10)
+};
+
+
 
 // Damage Roll
 SpellClicker.Roll = function(spell){
@@ -68,19 +86,35 @@ SpellClicker.Roll = function(spell){
         }
     }
 
-    outcome = damageDone === 0 ? "Fizzle!" : damageDone;
-    console.log(outcome);
+    return Math.round(damageDone);
 };
 
-
-// Game Loop
+// Game Loops
 SpellClicker.tick = function(){
+    SpellClicker.tickers.Monsters();
+    SpellClicker.tickers.Spells();
+};
+
+SpellClicker.tickers.Spells = function(){
     if(SpellClicker.game.spellQueue.length >= 6 ){
         SpellClicker.game.spellQueue[0].cast();
     }
     
-    var newSpell = Object.create(SpellClicker.getSpell(SpellClicker.Spells));
+    var newSpell = Object.create(SpellClicker.randomPick(SpellClicker.Spells));
     SpellClicker.game.spellQueue.push(newSpell);
+};
+
+SpellClicker.tickers.Spells = function(){
+    if(SpellClicker.game.Enemies.length <= 0 ){
+        var newEnemy = Object.create(SpellClicker.randomPick(SpellClicker.Monsters));
+        SpellClicker.game.Enemies.push(newEnemy);
+    }
+};
+
+// DON'T FUCK WITH THE RNGESUS
+SpellClicker.randomPick = function(obj){
+    var keys = Object.keys(obj);
+    return obj[keys[ keys.length * Math.random() << 0]];
 };
 
 SpellClicker.loop = setInterval(SpellClicker.tick, 1000);
