@@ -1,6 +1,6 @@
 var SpellClicker = SpellClicker || {};
 
-SpellClciker.Spell = function(name, damage, image){
+SpellClicker.Spell = function(name, damage, image){
     this.name = name;
     this.damage = damage;
     this.image = "/assets/img/spell-icons/" + image;
@@ -10,11 +10,11 @@ SpellClciker.Spell = function(name, damage, image){
 };
 
 SpellClicker.Spells = {
-    'lightning-rk-1': new SpellClick.Spell('Lightning Bolt', 10, "lighting-blue-1.png")
+    'lightning1': new SpellClick.Spell('Lightning Bolt', 10, "lighting-blue-1.png")
 };
 
 SpellClicker.game.spellQueue = [
-    Object.clone(SpellClicker.SpellPool.lightningBolt)
+    Object.clone(SpellClicker.SpellPool.lightning1)
 ];
 
 
