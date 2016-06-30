@@ -25,6 +25,9 @@ SpellClicker.Spell = function(name, damage, image){
     this.image = "/clicker-game/assets/img/spell-icons/" + image;
     this.cast = function(){
         var rem_index = SpellClicker.game.spellQueue.indexOf(this);
+
+        console.log(this.damage);
+
         SpellClicker.game.spellQueue.splice(rem_index, 1);
     };
 };
