@@ -27,7 +27,7 @@ SpellClicker.Spell = function(name, damage, image, multiplier){
     this.image = "/clicker-game/assets/img/spell-icons/" + image;
     this.multiplier = ( typeof multiplier === 'undefined') ? this.multiplier = 0.25 : multiplier;
     this.cast = function(){
-        console.log(SpellClicker.Roll(this));
+        SpellClicker.game.Enemies[0].defend(SpellClicker.Roll(this));
 
         var rem_index = SpellClicker.game.spellQueue.indexOf(this);
         SpellClicker.game.spellQueue.splice(rem_index, 1);
