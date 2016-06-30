@@ -13,11 +13,11 @@ SpellClicker.Spell = function(name, damage, image){
 SpellClicker.Spells = {
     'lightning1': new SpellClicker.Spell('Lightning Bolt', 10, "lighting-blue-1.png"),
     'frost1': new SpellClicker.Spell('Ice Lance', 2, "ice-blue-1.png"),
-    'fire1': new SpellClicker.Spell('Lightning Bolt', 15, "fireball-red-1.png")
+    'fire1': new SpellClicker.Spell('Fire Bolt', 15, "fireball-red-1.png")
 };
 
 SpellClicker.game.spellQueue = [
-        Object.create(SpellClicker.Spells.lightning1)
+        
 ];
 
 SpellClicker.getSpell = function(obj){
@@ -27,8 +27,8 @@ SpellClicker.getSpell = function(obj){
 
 SpellClicker.tick = function(){
     if(SpellClicker.game.spellQueue.length <= 6 ){
-        var newSpell = SpellClicker.getSpell(SpellClicker.Spells);
-        console.log(newSpell);
+        var newSpell = Object.create(SpellClicker.getSpell(SpellClicker.Spells));
+        SpellClicker.game.spellQueue.push(newSpell);
     }
 };
 
