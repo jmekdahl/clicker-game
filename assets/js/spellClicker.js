@@ -16,7 +16,6 @@ rivets.formatters.propertyList = function(obj){
     )();
 };
 
-
 var SpellClicker = SpellClicker || {};
 SpellClicker.game = {};
 
@@ -44,12 +43,12 @@ SpellClicker.getSpell = function(obj){
 }
 
 SpellClicker.tick = function(){
-    if(SpellClicker.game.spellQueue.length < 6 ){
-        var newSpell = Object.create(SpellClicker.getSpell(SpellClicker.Spells));
-        SpellClicker.game.spellQueue.push(newSpell);
-    } else {
+    if(SpellClicker.game.spellQueue.length >= 6 ){
         SpellClicker.game.spellQueue[0].cast();
     }
+    
+    var newSpell = Object.create(SpellClicker.getSpell(SpellClicker.Spells));
+    SpellClicker.game.spellQueue.push(newSpell);
 };
 
 SpellClicker.loop = setInterval(SpellClicker.tick, 1000);
