@@ -17,7 +17,7 @@
     <body>
         <div id="game">
             <ul class="enemies">
-                <li rv-each-spell="Enemies">{enemy.name}:{enemy.hitpoints}</li>
+                <li rv-each-enemy="Enemies">{enemy.name}:{enemy.hitpoints}</li>
             </ul>
             <ul class="spell-bar">
                 <li rv-each-spell="spellQueue" rv-on-click="spell.cast"> <img rv-src="spell.image" /></li>
