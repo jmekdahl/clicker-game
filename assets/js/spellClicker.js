@@ -104,7 +104,7 @@ SpellClicker.tickers.Spells = function(){
     SpellClicker.game.spellQueue.push(newSpell);
 };
 
-SpellClicker.tickers.Spells = function(){
+SpellClicker.tickers.Monsters = function(){
     if(SpellClicker.game.Enemies.length <= 0 ){
         var newEnemy = Object.create(SpellClicker.randomPick(SpellClicker.Monsters));
         SpellClicker.game.Enemies.push(newEnemy);
