@@ -15,7 +15,7 @@ SpellClicker.Spells = {
 
 SpellClicker.game = function(){
     this.spellQueue = [
-        SpellClicker.Spells.lightning1
+        Object.create(SpellClicker.Spells.lightning1)
     ];
 };
 
