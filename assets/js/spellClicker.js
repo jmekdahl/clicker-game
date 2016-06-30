@@ -4,7 +4,7 @@ SpellClicker.game = {};
 SpellClicker.Spell = function(name, damage, image){
     this.name = name;
     this.damage = damage;
-    this.image = "/assets/img/spell-icons/" + image;
+    this.image = "/clicker-game/assets/img/spell-icons/" + image;
     this.cast = function(){
         console.log("cast event");
     };
