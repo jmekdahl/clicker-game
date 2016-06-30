@@ -47,6 +47,8 @@ SpellClicker.tick = function(){
     if(SpellClicker.game.spellQueue.length < 6 ){
         var newSpell = Object.create(SpellClicker.getSpell(SpellClicker.Spells));
         SpellClicker.game.spellQueue.push(newSpell);
+    } else {
+        SpellClicker.game.spellQueue[0].cast();
     }
 };
 
