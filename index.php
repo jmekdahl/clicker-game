@@ -8,7 +8,7 @@
     <body>
         <div id="game">
             <ul>
-                <li rv-each-spell="spellQueue" rv-on-click="spell.cast"> <img src="{spell.image}" />{spell.name} </li>
+                <li rv-each-spell="spellQueue" rv-on-click="spell.cast"> <img rv-src="spell.image" />{spell.name} </li>
             </ul>
         </div>
     </body>
