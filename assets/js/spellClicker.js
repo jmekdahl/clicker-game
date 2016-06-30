@@ -1,14 +1,35 @@
-var SpellClicker = {};
+var SpellClicker = SpellClicker || {};
 
-SpellClciker.Spell = function(){
-    this.name,
-    this.damage
-}
+SpellClciker.Spell = function(name, damage, image){
+    this.name = name;
+    this.damage = damage;
+    this.image = "/assets/img/spell-icons/" + image;
+    this.cast = function(){
+        console.log("cast event");
+    };
+};
 
-SpellClicker.SpellPool = {
-'lightningBolt': new SpellClick.Spell('Lightning Bolt', 10)
+SpellClicker.Spells = {
+    'lightning-rk-1': new SpellClick.Spell('Lightning Bolt', 10, "lighting-blue-1.png")
 };
 
 SpellClicker.game.spellQueue = [
     Object.clone(SpellClicker.SpellPool.lightningBolt)
 ];
+
+
+
+// rivets.formatters.propertyList = function(obj){
+//     return(
+//         function(){
+//             var properties=[];
+//             for(var key in obj){
+//                 properties.push({key:key,value:obj[key]});
+//             }
+//             return properties;
+//         })();
+// };
+
+// rivets.formatters.or = function(value,args){
+//     return value||args;
+// };
