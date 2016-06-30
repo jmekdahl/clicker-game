@@ -1,4 +1,5 @@
 var SpellClicker = SpellClicker || {};
+SpellClicker.game = {};
 
 SpellClicker.Spell = function(name, damage, image){
     this.name = name;
@@ -17,7 +18,7 @@ SpellClicker.game.spellQueue = [
         Object.create(SpellClicker.Spells.lightning1)
 ];
 
-$(document).ready( function() { 
+$(document).ready( function() {
     rivets.bind($('#game'), SpellClicker.game);
 });
 
