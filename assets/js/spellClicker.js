@@ -14,7 +14,7 @@ SpellClicker.Spells = {
 };
 
 SpellClicker.game.spellQueue = [
-    Object.clone(SpellClicker.Spells.lightning1)
+    SpellClicker.Spells.lightning1
 ];
 
 
