@@ -68,7 +68,7 @@ SpellClicker.Enemy = function(name, hitpoints, damage){
 };
 
 SpellClicker.Monsters = {
-    'skeleton': new SpellClicker.Spell('Walking Bones', 30, 10)
+    'skeleton': new SpellClicker.Enemy('Walking Bones', 30, 10)
 };
 
 
