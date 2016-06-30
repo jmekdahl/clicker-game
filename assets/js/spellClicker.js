@@ -16,18 +16,19 @@ rivets.formatters.propertyList = function(obj){
     )();
 };
 
+// Spell Management And Pool
 var SpellClicker = SpellClicker || {};
 SpellClicker.game = {};
 
-SpellClicker.Spell = function(name, damage, image){
+SpellClicker.Spell = function(name, damage, image, multiplier){
     this.name = name;
     this.damage = damage;
     this.image = "/clicker-game/assets/img/spell-icons/" + image;
+    this.multiplier = ( typeof multiplier === 'undefined') ? this.multiplier = 0.25 : multiplier;
     this.cast = function(){
+        SpellClicker.Roll(this);
+
         var rem_index = SpellClicker.game.spellQueue.indexOf(this);
-
-        console.log(this.damage);
-
         SpellClicker.game.spellQueue.splice(rem_index, 1);
     };
 };
@@ -43,8 +44,36 @@ SpellClicker.Spells = {
 SpellClicker.getSpell = function(obj){
     var keys = Object.keys(obj);
     return obj[keys[ keys.length * Math.random() << 0]];
-}
+};
 
+// Player
+SpellClicker.Player = function(name){
+    this.name = name;
+    this.critical = 0.05;
+    this.accuracy = 0.8;
+};
+
+SpellClicker.game.Player = Object.create(Player("Player 1"));
+
+// Damage Roll
+SpellClicker.Roll = function(spell){
+    var spellHits = Math.random() > (1 - SpellClicker.game.Player.accuracy),
+        spellCrits = Math.random() > (1- SpellClicker.game.Player.critical),
+        damageDone = 0;
+
+    if ( spellHits ) {
+        damageDone = spell.damage;
+        if ( spellCrits ) {
+            damageDone = damageDone * 1.5;
+        }
+    }
+
+    outcome = damageDone === 0 ? "Fizzle!" : damageDone;
+    console.log(outcome);
+};
+
+
+// Game Loop
 SpellClicker.tick = function(){
     if(SpellClicker.game.spellQueue.length >= 6 ){
         SpellClicker.game.spellQueue[0].cast();
