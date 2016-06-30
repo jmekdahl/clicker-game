@@ -13,11 +13,9 @@ SpellClicker.Spells = {
     'lightning1': new SpellClicker.Spell('Lightning Bolt', 10, "lighting-blue-1.png")
 };
 
-SpellClicker.game = function(){
-    this.spellQueue = [
+SpellClicker.game.spellQueue = [
         Object.create(SpellClicker.Spells.lightning1)
-    ];
-};
+];
 
 $(document).ready( function() { 
     rivets.bind($('#game'), SpellClicker.game);
