@@ -13,9 +13,11 @@ SpellClicker.Spells = {
     'lightning1': new SpellClicker.Spell('Lightning Bolt', 10, "lighting-blue-1.png")
 };
 
-SpellClicker.game.spellQueue = [
-    SpellClicker.Spells.lightning1
-];
+SpellClicker.game = function(){
+    this.spellQueue = [
+        SpellClicker.Spells.lightning1
+    ];
+};
 
 
 
