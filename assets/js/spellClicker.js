@@ -10,7 +10,7 @@ SpellClicker.Spell = function(name, damage, image){
 };
 
 SpellClicker.Spells = {
-    'lightning1': new SpellClick.Spell('Lightning Bolt', 10, "lighting-blue-1.png")
+    'lightning1': new SpellClicker.Spell('Lightning Bolt', 10, "lighting-blue-1.png")
 };
 
 SpellClicker.game.spellQueue = [
