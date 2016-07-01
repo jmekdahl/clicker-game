@@ -62,7 +62,8 @@ SpellClicker.Enemy = function(name, hitpoints, damage){
         this.hitpoints = this.hitpoints - damageRoll;
 
         if(this.hitpoints <= 0){
-            SpellClicker.Respawn();
+            var rem_index = SpellClicker.game.Enemies.indexOf(this);
+            SpellClicker.game.Enemies.splice(rem_index, 1);
         }
     };
 };
