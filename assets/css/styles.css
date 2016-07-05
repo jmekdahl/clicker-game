@@ -23,3 +23,23 @@ ul.spell-bar li{
 ul.spell-bar li img{
     width: 100%;
 }
+
+ul.enemies {
+    width: 320px;
+    height: 400px;
+}
+
+ul.enemies li{
+    list-style:none;
+    width: 100%;
+    text-align: center;
+}
+
+ul.enemies li img{
+    width: 100%;
+}
+
+#player{
+    display: block;
+    width: 100%;
+}
