@@ -2,9 +2,13 @@ html, body{
     font-family: 'Cinzel', serif;
     font-size: 16px;
 }
+#game{
+    width: 330px;
+    margin: 0 auto;
+}
 
 ul.spell-bar{
-    width: 660px;
+    width: 330px;
     margin:0 auto;
     padding:0 5px;
     text-align:center;
@@ -26,7 +30,8 @@ ul.spell-bar li img{
 
 ul.enemies {
     width: 320px;
-    height: 400px;
+    height: 420px;
+    padding:0;
 }
 
 ul.enemies li{
