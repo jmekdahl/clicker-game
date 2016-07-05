@@ -17,11 +17,14 @@
     <body>
         <div id="game">
             <ul class="enemies">
-                <li rv-each-enemy="Enemies">{enemy.name}:{enemy.hitpoints}</li>
+                <li rv-each-enemy="Enemies"><img rv-src="enemy.image" />{enemy.name}:{enemy.hitpoints}</li>
             </ul>
             <ul class="spell-bar">
                 <li rv-each-spell="spellQueue" rv-on-click="spell.cast"> <img rv-src="spell.image" /></li>
             </ul>
+            <div id="player">
+                Experience: {Player.exp}
+            </div>
         </div>
     </body>
 </html>

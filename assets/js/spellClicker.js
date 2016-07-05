@@ -48,28 +48,35 @@ SpellClicker.Player = function(name){
     this.critical = 0.25;
     this.accuracy = 0.8;
     this.hp = 100;
+    this.exp = 0;
 };
 
 SpellClicker.game.Player = new SpellClicker.Player("Player 1");
 
 // Monsters
 SpellClicker.game.Enemies = [];
-SpellClicker.Enemy = function(name, hitpoints, damage){
+SpellClicker.Enemy = function(name, hitpoints, damage, exp, image){
     this.name = name;
     this.hitpoints = hitpoints;
     this.damage = damage;
+    this.exp = exp;
+    this.image = "/clicker-game/assets/img/enemies/" + image;
     this.defend = function(damageRoll){
         this.hitpoints = this.hitpoints - damageRoll;
 
         if(this.hitpoints <= 0){
             var rem_index = SpellClicker.game.Enemies.indexOf(this);
             SpellClicker.game.Enemies.splice(rem_index, 1);
+            SpellClicker.game.Player.exp += this.exp;
         }
     };
 };
 
 SpellClicker.Monsters = {
-    'skeleton': new SpellClicker.Enemy('Walking Bones', 30, 10)
+    'critter': new SpellClicker.Enemy('Skittering Teeth', 15, 5, 10, "skeleton-critter-1-blue.png"),
+    'critter-elite': new SpellClicker.Enemy('Rabid Plaguehound', 20, 10, 20, "skeleton-critter-1-blue.png"),
+    'skeleton': new SpellClicker.Enemy('Walking Bones', 30, 10, 25, "skeleton-melee-1-blue.png"),
+    'skeleton-elite': new SpellClicker.Enemy('Angry Dead', 60, 30, 75, "skeleton-melee-1-green.png")
 };
 
 
