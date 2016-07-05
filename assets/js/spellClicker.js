@@ -79,7 +79,7 @@ SpellClicker.Enemy = function(name, hitpoints, damage, exp, image){
 
 SpellClicker.Monsters = {
     'critter': new SpellClicker.Enemy('Skittering Teeth', 15, 5, 10, "skeleton-critter-1-blue.png"),
-    'critter-elite': new SpellClicker.Enemy('Rabid Plaguehound', 20, 10, 20, "skeleton-critter-1-blue.png"),
+    'critter-elite': new SpellClicker.Enemy('Rabid Plaguehound', 20, 10, 20, "skeleton-critter-1-green.png"),
     'skeleton': new SpellClicker.Enemy('Walking Bones', 30, 10, 25, "skeleton-melee-1-blue.png"),
     'skeleton-elite': new SpellClicker.Enemy('Angry Dead', 60, 30, 75, "skeleton-melee-1-green.png")
 };
