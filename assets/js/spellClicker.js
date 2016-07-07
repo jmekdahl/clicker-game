@@ -21,10 +21,11 @@ var SpellClicker = SpellClicker || {};
 SpellClicker.game = {};
 SpellClicker.tickers = {};
 
-SpellClicker.Spell = function(name, damage, image, multiplier){
+SpellClicker.Spell = function(id, name, damage, image, multiplier){
+    this.id = id;
     this.name = name;
     this.damage = damage;
-    this.image = "/clicker-game/assets/img/spell-icons/" + image;
+    this.image = "assets/img/spell-icons/" + image;
     this.multiplier = ( typeof multiplier === 'undefined') ? this.multiplier = 0.25 : multiplier;
     this.cast = function(){
         SpellClicker.game.Enemies[0].defend(SpellClicker.Roll(this));
@@ -37,9 +38,9 @@ SpellClicker.Spell = function(name, damage, image, multiplier){
 SpellClicker.game.spellQueue = [];
 
 SpellClicker.Spells = {
-    'lightning1': new SpellClicker.Spell('Lightning Bolt', 10, "lighting-blue-1.png"),
-    'frost1': new SpellClicker.Spell('Ice Lance', 5, "ice-blue-1.png"),
-    'fire1': new SpellClicker.Spell('Fire Bolt', 15, "fireball-red-1.png")
+    'lightning1': new SpellClicker.Spell(1, 'Lightning Bolt', 10, "lightning-blue-1.png"),
+    'frost1': new SpellClicker.Spell(2, 'Ice Lance', 5, "ice-blue-1.png"),
+    'fire1': new SpellClicker.Spell(3, 'Fire Bolt', 15, "fireball-red-1.png")
 };
 
 // Player
@@ -60,7 +61,7 @@ SpellClicker.Enemy = function(name, hitpoints, damage, exp, image){
     this.hitpoints = hitpoints;
     this.damage = damage;
     this.exp = exp;
-    this.image = "/clicker-game/assets/img/enemies/" + image;
+    this.image = "assets/img/enemies/" + image;
     this.defend = function(damageRoll){
         this.hitpoints = this.hitpoints - damageRoll;
 
